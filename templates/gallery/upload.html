@@ -1,0 +1,16 @@
+{% extends 'gallery/base.html' %}
+{% load static %}
+
+{% block title %}Upload Photo{% endblock %}
+
+{% block content %}
+<h2>Upload a New Photo</h2>
+
+<form method="post" enctype="multipart/form-data" class="upload-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Upload</button>
+</form>
+
+<p class="back-link"><a href="{% url 'gallery' %}">← Back to Gallery</a></p>
+{% endblock %}
